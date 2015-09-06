@@ -1,0 +1,22 @@
+CREATE KEYSPACE IF NOT EXISTS cwt WITH REPLICATION ={'class':'SimpleStrategy','replication_factor':1};
+CREATE TABLE IF NOT EXISTS cwt.member (
+	username varchar,
+	email varchar,
+	fullname varchar,
+	password varchar,
+	active varchar, 
+	PRIMARY KEY (username));
+	
+	
+	CREATE TABLE IF NOT EXISTS cwt.watchlist (
+	watchlistcode varchar,
+	symbol varchar,
+	PRIMARY KEY (watchlistcode,symbol));
+
+	
+	CREATE TABLE IF NOT EXISTS cwt.tradingsignal (
+	symbol varchar,
+	price_time timestamp,
+	signal_price float,
+	signal_name varchar,
+	PRIMARY KEY (symbol,price_time));
